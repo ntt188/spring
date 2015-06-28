@@ -9,7 +9,7 @@ import fr.tungnguyen.spring.transaction.exception.CheckedException;
 import fr.tungnguyen.spring.transaction.exception.UncheckedException;
 
 @Service
-public class PersonServiceImpl implements PersonService {
+class PersonServiceImpl implements PersonService {
 
     @Autowired
     private PersonDAO personDAO;

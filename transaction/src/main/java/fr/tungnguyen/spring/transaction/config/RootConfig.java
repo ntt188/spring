@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import fr.tungnguyen.spring.transaction.dao.PersonDAO;
 import fr.tungnguyen.spring.transaction.service.PersonService;
 
 /**
@@ -16,7 +15,7 @@ import fr.tungnguyen.spring.transaction.service.PersonService;
 @EnableTransactionManagement
 @Configuration
 @Import(DAOConfig.class)
-@ComponentScan(basePackageClasses = { PersonDAO.class, PersonService.class })
+@ComponentScan(basePackageClasses = { PersonService.class })
 public class RootConfig {
 
 }

@@ -112,7 +112,7 @@ public class PersonServiceImplTest {
     @Test
     public void testCreateWithTransactionalRollbackForUncheckedExceptionThrowUncheckedExceptionWithoutInterruption_DAORequired() {
         personService
-        .createWithTransactionalRollbackForUncheckedExceptionThrowUncheckedExceptionWithoutInterruption_DAORequired();
+                .createWithTransactionalRollbackForUncheckedExceptionThrowUncheckedExceptionWithoutInterruption_DAORequired();
         assertEquals(3, personDAO.countAll().longValue());
     }
 
