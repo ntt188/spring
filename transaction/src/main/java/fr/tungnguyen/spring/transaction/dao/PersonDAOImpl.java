@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.tungnguyen.hibernate.batch.model.Person;
 import fr.tungnguyen.spring.transaction.exception.CheckedException;
 import fr.tungnguyen.spring.transaction.exception.UncheckedException;
-import fr.tungnguyen.spring.transaction.model.Person;
 
 @Repository
 class PersonDAOImpl implements PersonDAO {

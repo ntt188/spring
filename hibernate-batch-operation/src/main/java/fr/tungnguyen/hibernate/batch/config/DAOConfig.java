@@ -1,4 +1,4 @@
-package fr.tungnguyen.spring.transaction.config;
+package fr.tungnguyen.hibernate.batch.config;
 
 import javax.sql.DataSource;
 
@@ -10,9 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "fr.tungnguyen.spring.transaction.dao" })
+@EnableTransactionManagement
+@ComponentScan(basePackages = { "fr.tungnguyen.hibernate.batch.persistance" })
 public class DAOConfig {
 
     @Bean
@@ -29,10 +31,12 @@ public class DAOConfig {
     @Bean
     public SessionFactory getSessionFactory(final DataSource dataSource) {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-        sessionBuilder.scanPackages("fr.tungnguyen.spring.transaction.model");
+        sessionBuilder.scanPackages("fr.tungnguyen.hibernate.batch.model");
         sessionBuilder.setProperty("hibernate.show_sql", "true");
         sessionBuilder.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
-        sessionBuilder.setProperty("hibernate.cache.provider_class", "org.hibernate.cache.internal.NoCacheProvider");
+        sessionBuilder.setProperty("hibernate.order_updates", "true");
+        sessionBuilder.setProperty("hibernate.order_inserts", "true");
+        sessionBuilder.setProperty("hibernate.jdbc.batch_size", "30");
         sessionBuilder.setProperty("hibernate.hbm2ddl.auto", "update");
 
         return sessionBuilder.buildSessionFactory();

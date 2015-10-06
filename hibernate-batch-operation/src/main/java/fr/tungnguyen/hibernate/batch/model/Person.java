@@ -1,4 +1,4 @@
-package fr.tungnguyen.spring.transaction.model;
+package fr.tungnguyen.hibernate.batch.model;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(unique = true, nullable = false, insertable = true, updatable = true)
     private Long id;
 
