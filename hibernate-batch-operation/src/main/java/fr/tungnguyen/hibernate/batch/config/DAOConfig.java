@@ -31,13 +31,13 @@ public class DAOConfig {
     @Bean
     public SessionFactory getSessionFactory(final DataSource dataSource) {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-        sessionBuilder.scanPackages("fr.tungnguyen.hibernate.batch.model");
+        sessionBuilder.scanPackages("fr.tungnguyen.hibernate.batch.model", "fr.tungnguyen.hibernate.batch.modelb");
         sessionBuilder.setProperty("hibernate.show_sql", "true");
         sessionBuilder.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
         sessionBuilder.setProperty("hibernate.order_updates", "true");
         sessionBuilder.setProperty("hibernate.order_inserts", "true");
-        sessionBuilder.setProperty("hibernate.jdbc.batch_size", "30");
-        sessionBuilder.setProperty("hibernate.hbm2ddl.auto", "update");
+        sessionBuilder.setProperty("hibernate.jdbc.batch_size", "50");
+        // sessionBuilder.setProperty("hibernate.hbm2ddl.auto", "update");
 
         return sessionBuilder.buildSessionFactory();
     }
